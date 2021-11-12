@@ -53,3 +53,66 @@ data "oci_identity_fault_domains" "vcp_fds" {
   compartment_id = var.tenancy_id
   availability_domain = local.ads["vcp_ad1_name"]
 }
+
+#
+# https://registry.terraform.io/providers/hashicorp/oci/latest/docs/data-sources/core_volume_backup_policies
+#
+data "oci_core_volume_backup_policies" "gru_bronze_backup_policy" {
+  provider = oci.gru
+
+  filter {
+    name   = "display_name"
+    values = ["bronze"]
+    regex  = false
+  }  
+}
+
+data "oci_core_volume_backup_policies" "gru_silver_backup_policy" {
+  provider = oci.gru
+
+  filter {
+    name   = "display_name"
+    values = ["silver"]
+    regex  = false
+  }  
+}
+
+data "oci_core_volume_backup_policies" "gru_gold_backup_policy" {
+  provider = oci.gru
+
+  filter {
+    name   = "display_name"
+    values = ["gold"]
+    regex  = false
+  }  
+}
+
+data "oci_core_volume_backup_policies" "vcp_bronze_backup_policy" {
+  provider = oci.vcp
+
+  filter {
+    name   = "display_name"
+    values = ["bronze"]
+    regex  = false
+  }  
+}
+
+data "oci_core_volume_backup_policies" "vcp_silver_backup_policy" {
+  provider = oci.vcp
+
+  filter {
+    name   = "display_name"
+    values = ["silver"]
+    regex  = false
+  }  
+}
+
+data "oci_core_volume_backup_policies" "vcp_gold_backup_policy" {
+  provider = oci.vcp
+
+  filter {
+    name   = "display_name"
+    values = ["gold"]
+    regex  = false
+  }  
+}

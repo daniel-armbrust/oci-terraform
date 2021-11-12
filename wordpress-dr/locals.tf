@@ -54,6 +54,19 @@ locals {
       vcp_fd3_name = data.oci_identity_fault_domains.vcp_fds.fault_domains[2].name
    }
 
+   # Backup Policies
+   gru_backup_policies = {   
+      bronze = data.oci_core_volume_backup_policies.gru_bronze_backup_policy.volume_backup_policies[0].id
+      silver = data.oci_core_volume_backup_policies.gru_silver_backup_policy.volume_backup_policies[0].id
+      gold = data.oci_core_volume_backup_policies.gru_gold_backup_policy.volume_backup_policies[0].id
+   }
+
+   vcp_backup_policies = {   
+      bronze = data.oci_core_volume_backup_policies.vcp_bronze_backup_policy.volume_backup_policies[0].id
+      silver = data.oci_core_volume_backup_policies.vcp_silver_backup_policy.volume_backup_policies[0].id
+      gold = data.oci_core_volume_backup_policies.vcp_gold_backup_policy.volume_backup_policies[0].id
+   }
+
    #
    # See: https://docs.oracle.com/en-us/iaas/images/
    #

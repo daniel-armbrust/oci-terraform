@@ -3,7 +3,7 @@
 # https://docs.oracle.com/en-us/iaas/Content/Network/Tasks/managingpublicIPs.htm
 #
 
-module "gru_lb-wordpress_pubip" {
+module "gru_lbpub-wordpress_pubip" {
     source = "../modules/networking/public_ip"
    
     providers = {
@@ -11,11 +11,11 @@ module "gru_lb-wordpress_pubip" {
     }
 
     compartment_id = var.compartment_id
-    display_name = "gru_lb-wordpress_pubip"
+    display_name = "gru_lbpub-wordpress_pubip"
     lifetime = "RESERVED"  
 }
 
-module "vcp_lb-wordpress_pubip" {
+module "vcp_lbpub-wordpress_pubip" {
     source = "../modules/networking/public_ip"
    
     providers = {
@@ -23,6 +23,6 @@ module "vcp_lb-wordpress_pubip" {
     }
 
     compartment_id = var.compartment_id
-    display_name = "gru_lb-wordpress_pubip"
+    display_name = "gru_lbpub-wordpress_pubip"
     lifetime = "RESERVED"  
 }
