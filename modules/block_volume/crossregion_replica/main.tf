@@ -3,7 +3,7 @@
 # https://registry.terraform.io/providers/hashicorp/oci/latest/docs/resources/core_volume
 #
 
-resource "oci_core_volume" "vcp_block_volume" {
+resource "oci_core_volume" "block_volume" {
    compartment_id = var.compartment_id
    
    display_name = var.display_name
