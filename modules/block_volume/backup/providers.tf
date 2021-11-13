@@ -1,5 +1,5 @@
 #
-# modules/block_volume/providers.tf
+# modules/block_volume/backup/providers.tf
 # https://registry.terraform.io/providers/hashicorp/oci/latest/docs
 #
 
