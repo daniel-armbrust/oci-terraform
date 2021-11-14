@@ -19,15 +19,15 @@ module "vcp_mysql-dr" {
     description = "VCP MySQL DR DB System"
 
     shape = local.mysql_shapes.vm_standard_E31
-    config_id = local.vcp_mysql_configs.ha_vm_standard_E31
-    is_highly_available = true
+    config_id = local.vcp_mysql_configs.standalone_vm_standard_E31
+    is_highly_available = false
     storage_gb = 100
     ad_name = local.ads.vcp_ad1_name
     subnet_id = module.vcp_subprv-database_vcn-dr.id
     hostname = "vcpmysqldr"
 
     admin_username = "admin"
-    admin_password = "@Sup3rS3cr3t0!"
+    admin_password = "Sup3rS3cr3t0#"
 
     backup_policy = {
         is_enable = true

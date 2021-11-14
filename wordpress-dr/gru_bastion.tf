@@ -16,6 +16,6 @@ module "gru_bastion" {
 
     compartment_id = var.compartment_id
     name = "GruBastionWordpress"
-    client_cidr_list = [""]
+    client_cidr_list = ["200.74.54.82/32"]
     target_subnet_id = module.gru_subprv-backend_vcn-prd.id
 }

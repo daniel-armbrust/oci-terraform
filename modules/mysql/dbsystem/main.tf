@@ -26,8 +26,8 @@ resource "oci_mysql_mysql_db_system" "mysql_dbsystem" {
     port = var.port
     port_x = var.port_x
 
-    admin_password = var.admin_username
-    admin_username = var.admin_password
+    admin_username = var.admin_username
+    admin_password = var.admin_password        
 
     backup_policy {
         is_enabled = var.backup_policy.is_enable

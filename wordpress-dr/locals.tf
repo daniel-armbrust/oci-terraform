@@ -70,17 +70,22 @@ locals {
    # MySQL Configurations
    gru_mysql_configs = {      
       standalone_vm_standard_E21 = data.oci_mysql_mysql_configurations.gru_mysqlconfig_standalone_vm_standard-E21.configurations[0].id
+      standalone_vm_standard_E22 = data.oci_mysql_mysql_configurations.gru_mysqlconfig_standalone_vm_standard-E22.configurations[0].id
+      standalone_vm_standard_E31 = data.oci_mysql_mysql_configurations.gru_mysqlconfig_standalone_vm_standard-E31.configurations[0].id
       ha_vm_standard_E31 = data.oci_mysql_mysql_configurations.gru_mysqlconfig_ha_vm_standard-E31.configurations[0].id
    }
 
    vcp_mysql_configs = {
       standalone_vm_standard_E21 = data.oci_mysql_mysql_configurations.vcp_mysqlconfig_standalone_vm_standard-E21.configurations[0].id
+      standalone_vm_standard_E22 = data.oci_mysql_mysql_configurations.vcp_mysqlconfig_standalone_vm_standard-E22.configurations[0].id
+      standalone_vm_standard_E31 = data.oci_mysql_mysql_configurations.vcp_mysqlconfig_standalone_vm_standard-E31.configurations[0].id
       ha_vm_standard_E31 = data.oci_mysql_mysql_configurations.vcp_mysqlconfig_ha_vm_standard-E31.configurations[0].id
    }
 
-   # MySQL GLOBAL Shapes
+   # MySQL Shapes
    mysql_shapes = {
       vm_standard_E21 = data.oci_mysql_shapes.mysql_shape_vm_standard-E21.shapes[0].name
+      vm_standard_E22 = data.oci_mysql_shapes.mysql_shape_vm_standard-E22.shapes[0].name
       vm_standard_E31 = data.oci_mysql_shapes.mysql_shape_vm_standard-E31.shapes[0].name
    }
 

@@ -133,6 +133,28 @@ data "oci_mysql_mysql_configurations" "gru_mysqlconfig_standalone_vm_standard-E2
    }
 }
 
+data "oci_mysql_mysql_configurations" "gru_mysqlconfig_standalone_vm_standard-E22" {
+   provider = oci.gru
+   compartment_id = var.tenancy_id
+
+   filter {
+     name = "shape_name"
+     values = ["VM.Standard.E2.2"]
+     regex = false
+   }
+}
+
+data "oci_mysql_mysql_configurations" "gru_mysqlconfig_standalone_vm_standard-E31" {
+   provider = oci.gru
+   compartment_id = var.tenancy_id
+
+   filter {
+     name = "shape_name"
+     values = ["MySQL.VM.Standard.E3.1.8GB"]
+     regex = false
+   }
+}
+
 data "oci_mysql_mysql_configurations" "gru_mysqlconfig_ha_vm_standard-E31" {
    provider = oci.gru
    compartment_id = var.tenancy_id
@@ -151,6 +173,28 @@ data "oci_mysql_mysql_configurations" "vcp_mysqlconfig_standalone_vm_standard-E2
    filter {
      name = "shape_name"
      values = ["VM.Standard.E2.1"]
+     regex = false
+   }
+}
+
+data "oci_mysql_mysql_configurations" "vcp_mysqlconfig_standalone_vm_standard-E22" {
+   provider = oci.vcp
+   compartment_id = var.tenancy_id
+
+   filter {
+     name = "shape_name"
+     values = ["VM.Standard.E2.2"]
+     regex = false
+   }
+}
+
+data "oci_mysql_mysql_configurations" "vcp_mysqlconfig_standalone_vm_standard-E31" {
+   provider = oci.vcp
+   compartment_id = var.tenancy_id
+
+   filter {
+     name = "shape_name"
+     values = ["MySQL.VM.Standard.E3.1.8GB"]
      regex = false
    }
 }
@@ -178,6 +222,16 @@ data "oci_mysql_shapes" "mysql_shape_vm_standard-E21" {
    filter {
      name = "name"
      values = ["VM.Standard.E2.1"]
+   }
+}
+
+data "oci_mysql_shapes" "mysql_shape_vm_standard-E22" {
+   provider = oci.gru
+   compartment_id = var.tenancy_id
+
+   filter {
+     name = "name"
+     values = ["VM.Standard.E2.2"]
    }
 }
 

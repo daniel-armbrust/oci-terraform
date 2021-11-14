@@ -26,23 +26,33 @@ variable "is_enabled" {
     default = true
 }
 
-variable "source_mysql" {
+variable "mysql_source" {
    description = "(Required) (Updatable) The MySQL Channel Source."
+
    type = object({
        hostname = string
        username = string
        password = string
        port = optional(string)
-       source_type = string
+       type = string
+       ssl_mode = string
    })
+
+   sensitive = true
+
+   validation {
+       condition = can(regex("^(DISABLED|REQUIRED)$", var.mysql_source.ssl_mode))
+       error_message = "The SSL Mode for MySQL Channel must be: DISABLED or REQUIRED."
+   }
 }
 
-variable "target_mysql" {
+variable "mysql_target" {
     description = "(Required) (Updatable) The MySQL Channel Target."
+    
     type = object({
         username = string
         channel_name = string
         db_system_id = string
-        target_type = string
+        type = string
     })
 }
