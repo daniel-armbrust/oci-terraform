@@ -9,6 +9,7 @@ resource "oci_core_volume_attachment" "volume_attachment" {
     attachment_type = var.attachment_type
     instance_id = var.instance_id
     volume_id = var.volume_id
+    device = var.device_name
     is_read_only = var.is_read_only
     is_shareable = var.is_shareable
 }

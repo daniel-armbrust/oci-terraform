@@ -25,6 +25,10 @@ module "gru_blkvol-wordpress-upload" {
     size_gb = 100    
 }
 
+#------------------------------
+# Block Volume Attachment
+#------------------------------
+
 module "gru_blkvol-wordpress-upload_attach_primary" {
     source = "../modules/block_volume/attach"
 
@@ -35,7 +39,8 @@ module "gru_blkvol-wordpress-upload_attach_primary" {
     display_name = "gru_blkvol-wordpress-upload_attach_primary"
 
     volume_id = module.gru_blkvol-wordpress-upload.id
-    instance_id = module.gru_vmlnx-wordpress_primary.id
+    instance_id = module.gru_vmlnx-wordpress_primary.id    
+    device_name = "/dev/oracleoci/oraclevdb"
     is_shareable = true
 }
 
@@ -49,9 +54,14 @@ module "gru_blkvol-wordpress-upload_attach_backup" {
     display_name = "gru_blkvol-wordpress-upload_attach_backup"
 
     volume_id = module.gru_blkvol-wordpress-upload.id
-    instance_id = module.gru_vmlnx-wordpress_backup.id
+    instance_id = module.gru_vmlnx-wordpress_backup.id    
+    device_name = "/dev/oracleoci/oraclevdb"
     is_shareable = true
 }
+
+#------------------------------
+# Block Volume Backup Policy
+#------------------------------
 
 module "gru_blkvol-wordpress-upload_bkppol" {
     source = "../modules/block_volume/backup"

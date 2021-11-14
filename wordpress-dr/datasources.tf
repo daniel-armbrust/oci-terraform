@@ -116,3 +116,77 @@ data "oci_core_volume_backup_policies" "vcp_gold_backup_policy" {
     regex  = false
   }  
 }
+
+#
+# MySQL Configurations
+# https://registry.terraform.io/providers/hashicorp/oci/latest/docs/data-sources/mysql_mysql_configurations
+#
+
+data "oci_mysql_mysql_configurations" "gru_mysqlconfig_standalone_vm_standard-E21" {
+   provider = oci.gru
+   compartment_id = var.tenancy_id
+
+   filter {
+     name = "shape_name"
+     values = ["VM.Standard.E2.1"]
+     regex = false
+   }
+}
+
+data "oci_mysql_mysql_configurations" "gru_mysqlconfig_ha_vm_standard-E31" {
+   provider = oci.gru
+   compartment_id = var.tenancy_id
+
+   filter {
+     name = "shape_name"
+     values = ["MySQL.VM.Standard.E3.1.8GB"]
+     regex = false
+   }
+}
+
+data "oci_mysql_mysql_configurations" "vcp_mysqlconfig_standalone_vm_standard-E21" {
+   provider = oci.vcp
+   compartment_id = var.tenancy_id
+
+   filter {
+     name = "shape_name"
+     values = ["VM.Standard.E2.1"]
+     regex = false
+   }
+}
+
+data "oci_mysql_mysql_configurations" "vcp_mysqlconfig_ha_vm_standard-E31" {
+   provider = oci.vcp
+   compartment_id = var.tenancy_id
+
+   filter {
+     name = "shape_name"
+     values = ["MySQL.VM.Standard.E3.1.8GB"]
+     regex = false
+   }
+}
+
+#
+# MySQL Shapes
+# https://registry.terraform.io/providers/hashicorp/oci/latest/docs/data-sources/mysql_shapes
+#
+
+data "oci_mysql_shapes" "mysql_shape_vm_standard-E21" {
+   provider = oci.gru
+   compartment_id = var.tenancy_id
+
+   filter {
+     name = "name"
+     values = ["VM.Standard.E2.1"]
+   }
+}
+
+data "oci_mysql_shapes" "mysql_shape_vm_standard-E31" {
+   provider = oci.gru
+   compartment_id = var.tenancy_id
+
+   filter {
+     name = "name"
+     values = ["MySQL.VM.Standard.E3.1.8GB"]
+   }
+}
