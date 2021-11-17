@@ -1,0 +1,21 @@
+#
+# bastion.tf
+# https://docs.oracle.com/en-us/iaas/Content/Bastion/home.htm
+#
+
+#-------------------
+# Bastion
+#-------------------
+
+module "bastion" {
+    source = "../modules/bastion/bastion"
+
+    providers = {
+       oci = oci.gru
+    }
+
+    compartment_id = var.compartment_id
+    name = "GruBastionWordpress"
+    client_cidr_list = ["200.74.54.82/32"]
+    target_subnet_id = module.subprv-backend_vcn-prd.id
+}

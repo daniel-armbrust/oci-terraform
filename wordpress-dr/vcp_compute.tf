@@ -25,6 +25,8 @@ module "vcp_vmlnx-wordpress_primary" {
     shape = "VM.Standard.E2.1"        
     image_id = local.compute_image_id.vcp.ol7
     ssh_public_keys = file("${path.root}/keys/common.ssh_pubkey")
+
+    enable_bastion_plugin = true
 }
 
 module "vcp_vmlnx-wordpress_backup" {    
@@ -45,4 +47,6 @@ module "vcp_vmlnx-wordpress_backup" {
     shape = "VM.Standard.E2.1"        
     image_id = local.compute_image_id.vcp.ol7
     ssh_public_keys = file("${path.root}/keys/common.ssh_pubkey")
+
+    enable_bastion_plugin = true
 }

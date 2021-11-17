@@ -25,6 +25,8 @@ module "gru_vmlnx-wordpress_primary" {
     shape = "VM.Standard.E2.1"        
     image_id = local.compute_image_id.gru.ol7
     ssh_public_keys = file("${path.root}/keys/common.ssh_pubkey")
+
+    enable_bastion_plugin = true
 }
 
 module "gru_vmlnx-wordpress_backup" {    
@@ -45,4 +47,6 @@ module "gru_vmlnx-wordpress_backup" {
     shape = "VM.Standard.E2.1"        
     image_id = local.compute_image_id.gru.ol7
     ssh_public_keys = file("${path.root}/keys/common.ssh_pubkey")
+
+    enable_bastion_plugin = true
 }

@@ -25,6 +25,12 @@ variable "vnic_display_name" {
     default = "vnic"
 }
 
+variable "private_ip" {
+    description = "(Optional) A private IP address of your choice to assign to the VNIC. "
+    type = string
+    default = null
+}
+
 variable "hostname" {
     description = "(Optional) (Updatable) The hostname for the VNIC's primary private IP. Used for DNS."
     type = string
@@ -93,4 +99,10 @@ variable "ssh_public_keys" {
     description = "Provide one or more public SSH keys to be included in the ~/.ssh/authorized_keys file for the default user on the instance. Use a newline character to separate multiple keys."
     type = string
     default = null
+}
+
+variable "enable_bastion_plugin" {
+    description = "(Optional) (Updatable) Enable Bastion Pluging."
+    type = bool
+    default = false
 }
